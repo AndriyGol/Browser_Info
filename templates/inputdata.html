@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+{% block mainContainer %}
+	<br>
+	<form action="/inputdata">
+		Search: <input type="text" name="q" value="{{q}}"> <input type="submit" value="Search">
+	</form>
+	<table class="table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Text</th>
+				<th>Field Name</th>
+				<th>Times Used</th>
+				<th>Last Used Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in items %}
+			<tr>
+				<th scope="row">{{loop.index}}</th>
+				<td>{{item.text}}</td>
+				<td>{{item.fieldName}}</td>
+				<td>{{item.count}}</td>
+				<td>{{item.lastUsedDate}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
