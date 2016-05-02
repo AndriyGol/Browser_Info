@@ -46,10 +46,8 @@ def places_data():
 def cookies_data():
     q = request.args.get('q') or ''
     filtered = get_data().cookies
-    print(filtered)
     if q:
         filtered = filter(lambda o: q in o.host, filtered)
-    print(filtered)
     return render_template('cookies.html', items = filtered, q = q)
 
 @app.route('/reload')
